@@ -82,7 +82,6 @@ export const getAllCommentsofUser = async (token, email) => {
             },
         };
         const { data } = await axios.get(`https://blog-management-backend.vercel.app/api/comments/${email}`, config);
-        console.log(data);
         return data;
     } catch (err) {
         throw new Error(err.message);

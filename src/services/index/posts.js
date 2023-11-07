@@ -156,7 +156,6 @@ export const getInsights = async (token, email) => {
             },
         };
         const { data } = await axios.get(`https://blog-management-backend.vercel.app/api/posts/insights/${email}`, config);
-        console.log(data);
         return data;
     } catch (err) {
         throw new Error(err.message);
