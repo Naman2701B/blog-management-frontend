@@ -7,5 +7,5 @@ export const likesCount = async ({ slug, token }) => {
             Authorization: `Bearer ${token}`,
         },
     };
-    await axios.put(`/api/posts/${slug}/likes`, {}, config);
+    await axios.put(`https://blog-management-backend.vercel.app/api/posts/${slug}/likes`, {}, config);
 };

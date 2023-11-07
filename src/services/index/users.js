@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const signup = async ({ name, email, password }) => {
     try {
-        const { data } = await axios.post("/api/users/register", {
+        const { data } = await axios.post("https://blog-management-backend.vercel.app/api/users/register", {
             name,
             email,
             password,
@@ -18,7 +18,7 @@ export const signup = async ({ name, email, password }) => {
 
 export const login = async ({ email, password }) => {
     try {
-        const { data } = await axios.post("/api/users/login", {
+        const { data } = await axios.post("https://blog-management-backend.vercel.app/api/users/login", {
             email,
             password,
         });
@@ -38,7 +38,7 @@ export const getUserProfile = async ({ token }) => {
                 Authorization: `Bearer ${token}`,
             },
         };
-        const { data } = await axios.get("/api/users/profile", config);
+        const { data } = await axios.get("https://blog-management-backend.vercel.app/api/users/profile", config);
         return data;
     } catch (error) {
         if (error.response && error.response.data.message) {
@@ -56,7 +56,7 @@ export const updateProfile = async ({ token, userData }) => {
             },
         };
         const { data } = await axios.put(
-            "/api/users/updateProfile",
+            "https://blog-management-backend.vercel.app/api/users/updateProfile",
             userData,
             config
         );
@@ -78,7 +78,7 @@ export const updateProfilePicture = async ({ token, formData }) => {
             },
         };
         const { data } = await axios.put(
-            "/api/users/updateProfilePicture",
+            "https://blog-management-backend.vercel.app/api/users/updateProfilePicture",
             formData,
             config
         );
