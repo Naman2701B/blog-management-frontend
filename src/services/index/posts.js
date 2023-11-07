@@ -26,7 +26,7 @@ export const getAllPostsOfUser = async (
 
 export const getAllPosts = async () => {
     try {
-        const { data } = await axios.get(`/api/posts`);
+        const { data } = await axios.get(`https://blog-management-backend.vercel.app/api/posts`);
         return { data };
     } catch (error) {
         if (error.response && error.response.data.message)
