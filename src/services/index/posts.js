@@ -13,7 +13,7 @@ export const getAllPostsOfUser = async (
         };
 
         const { data, headers } = await axios.get(
-            `http://localhost:5000/api/posts/manage?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`,
+            `http://localhost:8080/api/posts/manage?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`,
             config
         );
         return { data, headers };
@@ -26,7 +26,7 @@ export const getAllPostsOfUser = async (
 
 export const getAllPosts = async () => {
     try {
-        const { data } = await axios.get(`http://localhost:5000/api/posts`);
+        const { data } = await axios.get(`http://localhost:8080/api/posts`);
         return { data };
     } catch (error) {
         if (error.response && error.response.data.message)
@@ -37,7 +37,7 @@ export const getAllPosts = async () => {
 
 export const getSinglePosts = async ({ slug }) => {
     try {
-        const { data } = await axios.get(`http://localhost:5000/api/posts/${slug}`);
+        const { data } = await axios.get(`http://localhost:8080/api/posts/${slug}`);
         return data;
     } catch (error) {
         if (error.response && error.response.data.message) {
@@ -54,7 +54,7 @@ export const deletePosts = async ({ slug, token }) => {
                 Authorization: `Bearer ${token}`,
             },
         };
-        const { data } = await axios.delete(`http://localhost:5000/api/posts/${slug}`, config);
+        const { data } = await axios.delete(`http://localhost:8080/api/posts/${slug}`, config);
         return data;
     } catch (error) {
         if (error.response && error.response.data.message) {
@@ -72,7 +72,7 @@ export const updatePosts = async ({ updatedData, slug, token }) => {
             },
         };
         const { data } = await axios.put(
-            `http://localhost:5000/api/posts/${slug}`,
+            `http://localhost:8080/api/posts/${slug}`,
             updatedData,
             config
         );
@@ -94,7 +94,7 @@ export const createPost = async ({ postData, token }) => {
             },
         };
 
-        const { data } = await axios.post(`http://localhost:5000/api/posts/`, postData, config);
+        const { data } = await axios.post(`http://localhost:8080/api/posts/`, postData, config);
         return data;
     } catch (error) {
         if (error.response && error.response.data.message)
@@ -113,7 +113,7 @@ export const soundPost = async (data) => {
             },
         };
         const { resData } = await axios.get(
-            `http://localhost:5000/api/posts/${data?.slug}`,
+            `http://localhost:8080/api/posts/${data?.slug}`,
             data,
             config
         );
@@ -136,7 +136,7 @@ export const analyzePost = async (data) => {
             },
         };
         const { resData } = await axios.post(
-            `http://localhost:5000/api/posts/${data.slug}`,
+            `http://localhost:8080/api/posts/${data.slug}`,
             data,
             config
         );
@@ -155,7 +155,7 @@ export const getInsights = async (token, email) => {
                 Authorization: `Bearer ${token}`,
             },
         };
-        const { data } = await axios.get(`http://localhost:5000/api/posts/insights/${email}`, config);
+        const { data } = await axios.get(`http://localhost:8080/api/posts/insights/${email}`, config);
         return data;
     } catch (err) {
         throw new Error(err.message);
