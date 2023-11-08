@@ -13,7 +13,7 @@ export const createNewComment = async ({
             },
         };
         const { data } = await axios.post(
-            "https://blog-management-backend.vercel.app/api/comments",
+            "http://localhost:5000/api/comments",
             {
                 desc,
                 slug,
@@ -39,7 +39,7 @@ export const updateComment = async ({ token, desc, commentId }) => {
             },
         };
         const { data } = await axios.put(
-            `https://blog-management-backend.vercel.app/api/comments/${commentId}`,
+            `http://localhost:5000/api/comments/${commentId}`,
             {
                 desc,
             },
@@ -62,7 +62,7 @@ export const deleteComment = async ({ token, commentId }) => {
             },
         };
         const { data } = await axios.delete(
-            `https://blog-management-backend.vercel.app/api/comments/${commentId}`,
+            `http://localhost:5000/api/comments/${commentId}`,
             config
         );
         return data;
@@ -81,7 +81,7 @@ export const getAllCommentsofUser = async (token, email) => {
                 Authorization: `Bearer ${token}`,
             },
         };
-        const { data } = await axios.get(`https://blog-management-backend.vercel.app/api/comments/${email}`, config);
+        const { data } = await axios.get(`http://localhost:5000/api/comments/${email}`, config);
         return data;
     } catch (err) {
         throw new Error(err.message);
