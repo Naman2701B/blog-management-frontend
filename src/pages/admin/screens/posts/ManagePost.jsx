@@ -166,7 +166,7 @@ const ManagePosts = () => {
                                             </td>
                                         </tr>
                                     ) : (
-                                        postsData?.data.map((post) => (
+                                        postsData?.data?.map((post) => (
                                             <tr key={post.title}>
                                                 <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                     <div className="flex items-center">
@@ -183,7 +183,7 @@ const ManagePosts = () => {
                                                                             : images.noImage
                                                                     }
                                                                     alt={
-                                                                        post.title
+                                                                        post?.title
                                                                     }
                                                                     className="mx-auto object-cover rounded-lg w-10 aspect-square"
                                                                 />
