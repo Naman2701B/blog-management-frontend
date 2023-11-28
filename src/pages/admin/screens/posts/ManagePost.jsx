@@ -191,15 +191,15 @@ const ManagePosts = () => {
                                                         </div>
                                                         <div className="ml-3">
                                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                                {post.title}
+                                                                {post?.title}
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                     <p className="text-gray-900 whitespace-no-wrap">
-                                                        {post.categories
-                                                            .length > 0
+                                                        {post?.categories
+                                                            ?.length > 0
                                                             ? post.categories[0]
                                                             : "Uncategorized"}
                                                     </p>
@@ -207,8 +207,8 @@ const ManagePosts = () => {
                                                 <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                     <p className="text-gray-900 whitespace-no-wrap">
                                                         {new Date(
-                                                            post.createdAt
-                                                        ).toLocaleDateString(
+                                                            post?.createdAt
+                                                        )?.toLocaleDateString(
                                                             "en-US",
                                                             {
                                                                 day: "numeric",
@@ -220,8 +220,8 @@ const ManagePosts = () => {
                                                 </td>
                                                 <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                     <div className="flex gap-x-2">
-                                                        {post.tags.length > 0
-                                                            ? post.tags.map(
+                                                        {post?.tags?.length > 0
+                                                            ? post?.tags?.map(
                                                                   (
                                                                       tag,
                                                                       index
@@ -233,8 +233,8 @@ const ManagePosts = () => {
                                                                       >
                                                                           {tag}
                                                                           {post
-                                                                              .tags
-                                                                              .length -
+                                                                              ?.tags
+                                                                              ?.length -
                                                                               1 !==
                                                                               index &&
                                                                               ","}
